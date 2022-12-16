@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		723EEEB3294D2A1F00498586 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 723EEEB2294D2A1F00498586 /* main.swift */; };
+		723EEEBC294D2A4E00498586 /* Bridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 723EEEBB294D2A4E00498586 /* Bridge.swift */; };
+		723EEEC8294D312B00498586 /* ChromeScripting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 723EEEC7294D312B00498586 /* ChromeScripting.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -25,6 +27,9 @@
 /* Begin PBXFileReference section */
 		723EEEAF294D2A1F00498586 /* goodbye */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = goodbye; sourceTree = BUILT_PRODUCTS_DIR; };
 		723EEEB2294D2A1F00498586 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		723EEEBB294D2A4E00498586 /* Bridge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bridge.swift; sourceTree = "<group>"; };
+		723EEEC7294D312B00498586 /* ChromeScripting.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChromeScripting.swift; sourceTree = "<group>"; };
+		723EEEC9294D350600498586 /* goodbye.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = goodbye.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,9 +62,28 @@
 		723EEEB1294D2A1F00498586 /* goodbye */ = {
 			isa = PBXGroup;
 			children = (
+				723EEEC9294D350600498586 /* goodbye.entitlements */,
+				723EEEBD294D2B0500498586 /* Resources */,
+				723EEEB9294D2A2700498586 /* Scripting */,
 				723EEEB2294D2A1F00498586 /* main.swift */,
 			);
 			path = goodbye;
+			sourceTree = "<group>";
+		};
+		723EEEB9294D2A2700498586 /* Scripting */ = {
+			isa = PBXGroup;
+			children = (
+				723EEEBB294D2A4E00498586 /* Bridge.swift */,
+			);
+			path = Scripting;
+			sourceTree = "<group>";
+		};
+		723EEEBD294D2B0500498586 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				723EEEC7294D312B00498586 /* ChromeScripting.swift */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -94,6 +118,7 @@
 				TargetAttributes = {
 					723EEEAE294D2A1F00498586 = {
 						CreatedOnToolsVersion = 14.2;
+						LastSwiftMigration = 1420;
 					};
 				};
 			};
@@ -120,6 +145,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				723EEEC8294D312B00498586 /* ChromeScripting.swift in Sources */,
+				723EEEBC294D2A4E00498586 /* Bridge.swift in Sources */,
 				723EEEB3294D2A1F00498586 /* main.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -243,10 +270,18 @@
 		723EEEB7294D2A1F00498586 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = goodbye/goodbye.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = YN24FFRTC8;
 				ENABLE_HARDENED_RUNTIME = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
@@ -254,9 +289,16 @@
 		723EEEB8294D2A1F00498586 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = goodbye/goodbye.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = YN24FFRTC8;
 				ENABLE_HARDENED_RUNTIME = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 			};

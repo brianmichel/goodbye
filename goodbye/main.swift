@@ -7,5 +7,8 @@
 
 import Foundation
 
-print("Hello, World!")
+let bridge = Bridge()
+
+bridge.printAllTabs()
+bridge.closeMeets()
 
